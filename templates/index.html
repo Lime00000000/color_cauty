@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Профессии, необходимые для успешной работы миссии на Марсе</h2>
+
+{% if list == 'ol' %}
+  <ol>
+  {% for profession in arr %}
+    <li>{{ profession }}</li>
+  {% endfor %}
+  </ol>
+{% elif list == 'ul' %}
+  <ul>
+  {% for profession in arr %}
+    <li>{{ profession }}</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>Неверный параметр списка.</p>
+{% endif %}
+{% endblock %}

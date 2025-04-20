@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="ct">
+        <img class="img" src="static/img/emblema.png" alt="Эмблема миссии">
+        <h1>Аварийный доступ</h1>
+    </div>
+    <form method="POST" action="{{ url_for('index') }}">
+        {{ form.csrf_token }}
+        <fieldset>
+            <legend>Персональная Информация</legend>
+            {{ form.id_ast.label }}<br>
+            {{ form.id_ast(size=32) }}<br>
+            {% for error in form.id_ast.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ form.password_ast.label }}<br>
+            {{ form.password_ast(size=32) }}<br>
+            {% for error in form.password_ast.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ form.id_kap.label }}<br>
+            {{ form.id_kap(size=32) }}<br>
+            {% for error in form.id_kap.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ form.password_kap.label }}<br>
+            {{ form.password_kap(size=32) }}<br>
+            {% for error in form.password_kap.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="Доступ">
+    </form>
+{% if err != '' %}
+    <span style="color: red;">[{{ err }}]</span><br>
+{% endif %}
+{% endblock %}
