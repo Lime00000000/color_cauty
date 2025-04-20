@@ -9,16 +9,16 @@ app.config['SECRET_KEY'] = 'your-secret-key-here'
 def index(sex, years):
     if years < 21:
         if sex == 'male':
-            wall_color = '#B0C4DE'  # Светло-голубой для молодого мужчины
+            wall_color = '#B0C4DE'
         else:
-            wall_color = '#FFC0CB'  # Розовый для молодой женщины
-        image = '/static/img/child.png'  # Изображение для молодых
+            wall_color = '#FFC0CB'
+        image = '/static/img/child.png'
     else:
         if sex == 'male':
-            wall_color = '#6495ED'  # Темно-синий для взрослого мужчины
+            wall_color = '#6495ED'
         else:
-            wall_color = '#FA8072'  # Красный для взрослой женщины
-        image = '/static/img/adult.png'  # Изображение для взрослых
+            wall_color = '#FA8072'
+        image = '/static/img/adult.png'
     return render_template('auto_answer.html', wall_color=wall_color, image=image)
 
 if __name__ == '__main__':
